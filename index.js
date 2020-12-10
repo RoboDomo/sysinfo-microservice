@@ -19,7 +19,7 @@ class SysInfoHost extends HostBase {
   async run() {
     for (;;) {
       const disks = await nodeDiskInfo.getDiskInfo();
-      this.state = { loadavg: os.loadavg() };
+      this.state = { loadavg: os.loadavg(), systemTime: Date.now() };
       this.state = { interfaces: os.networkInterfaces() };
       this.state = { cpus: os.cpus() };
       this.state = {
